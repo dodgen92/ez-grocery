@@ -15,17 +15,17 @@ $("#recipes").on("click", function(event) {
     }).then(function(response) {
       console.log(response);
 
-        for (var i = 0; i < response.length; i++) {
+        for (var i = 0; i < response.results.length; i++) {
+          console.log("i: " + i);
             var recipesDiv = $('<div class="col-lg-5"></div>');
 
             var p = $("<p>");
-            p.text(response[i].title);
-            var p = $("<p>").text("Title: " + response[i].title);
+            p.text(response.results[i].title);
+            var p = $("<p>").text("Title: " + response.results[i].title);
 
             var img = $("<img>");
-            img.attr("src", response[i].image);
+            img.attr("src", response.baseUri + response.results[i].image);
             
-
             recipesDiv.prepend(p);
             recipesDiv.prepend(img);
 
