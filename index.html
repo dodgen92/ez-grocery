@@ -2,50 +2,62 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
-    <title>Titlee</title>
+    <title>GIPHY SPORTS</title>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
-
-     <!--Favicon Link-->
-     <link rel="icon" href="favicon_io/favicon-32x32.png">
-
-    <!--JQuery Link-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- Bootstrap Link-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <!--Favicon Link-->
+    <link rel="icon" href="favicon_io/favicon-32x32.png">
 
-    <!-- Firebase References -->
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <!--Google Fonts Link-->
+    <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
 
-    <!-- Moment JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-
-    <!-- Google Fonts Link-->
-    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
+    <!-- Font awesome Link-->
+    <script src="https://use.fontawesome.com/releases/v5.12.0/js/all.js" data-auto-replace-svg="nest"></script>
 
 </head>
 
 <body>
-    <div class="container">
 
+    <div class="jumbotron jumbotron-fluid"
+        style="background-color: #2a2c2a; color: white; font-size: 60px; text-align: center; font-family: 'Bangers', cursive;">
+        RECIPE SEARCH
+        <br>
+   
     </div>
 
-        <footer class="footer">
+    <div class="wrapper">
 
-        </footer>
-        
-        <!--Link to JS logic-->
-        <script src="./assets/javascript/app.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+      <form id="recipe-form">
+
+            <input type="text" id="recipe-input">
+
+            <button id="recipes"> Search for Recipes </button>
+        </form>
+        <br>
+        <br>
+
+        <div id="recipe-view"></div>
+          
+    </div>
+
+    <footer class="footer">
+
+     
+
+    </footer>
+
+
+    <!--JQuery Link-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!--Link to JS logic-->
+    <script src="./assets/javascript/display.js"></script>
 
 </body>
 
