@@ -1,4 +1,4 @@
-
+// applcation javascript
 
 /* Firebase configuration */
 
