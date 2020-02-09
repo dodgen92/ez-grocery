@@ -18,3 +18,19 @@ img {
 p {
     color: black;
 }
+
+#valRecipeInput {
+    color: red;
+}
+
+#recipe-input {
+    /* height: 18px; */
+    font-size: 12px;
+}
+
+
+@media (max-width: 768px) {
+    .jumbotron {
+      background-position: 100% 50%;
+    }
+  }
