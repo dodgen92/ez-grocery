@@ -5,23 +5,24 @@ $("#recipes").on("click", function(event) {
   //Reset the page contents when search for new recipes
   $(".row").empty();
 
-  console.log("Validating user input")
+  console.log("validating search input")
 
   //Prevent the page from reloading when user clicks on Search for Recipes
   event.preventDefault();
 
   var valCheck = $("#recipe-input").val().trim();
-  console.log("valCheck: " + valCheck);
+  //console.log("valCheck: " + valCheck);
   
   //Validate search criteria entered by the user
   if (valCheck == "") {
     text = "Search value cannot be blank";
     $("#valRecipeInput").text(text);
   }else {
+    getRecipes();
+
     //Reset the form and get recipe data if validation is successful
     $("#recipe-form")[0].reset();
     $("#valRecipeInput").html("");
-    getRecipes();
   }
   
   });
@@ -29,46 +30,59 @@ $("#recipes").on("click", function(event) {
 //Get recipes by the search data
 function getRecipes() {
 
+  console.log ("getting recipes for search input")
+
+  //Prevent page refresh
   event.preventDefault();
 
+  //Remove any prior recipes searched for when starting a new search
   $("#recipe-view").empty();
-  var food = $("#recipe-input").val().trim();
 
+  var food = $("#recipe-input").val().trim();
+  //console.log("food: " + food);
+  
   var queryURL = "https://api.spoonacular.com/recipes/search?query=" + food + "&number=10&apiKey=870e3a3ad9bf44e3b6c302af33f72f11";
-  console.log(queryURL)
+  //console.log(queryURL)
   
   $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-    console.log(response);
+    //console.log(response);
 
+      if (response.results.length == 0) {
+        text = "No results found";
+        $("#valRecipeInput").text(text);
+      } else {
       //Loop through the recipes to add them to the page
-      for (var i = 0; i < response.results.length; i++) {
-        console.log("i: " + i);
+        for (var i = 0; i < response.results.length; i++) {
+          //console.log("i: " + i);
 
-        var recipesDiv = $('<div class="col-lg-5"></div>');
+          var recipesDiv = $('<div class="col-lg-5"></div>');
 
-        var p = $("<p>");
-        p.text(response.results[i].title);
-        var p = $("<p>").text("Title: " + response.results[i].title);
+          var p = $("<p>");
+          p.text(response.results[i].title);
+          var p = $("<p>").text("Title: " + response.results[i].title);
 
-        var img = $("<img>");
-        img.attr("src", response.baseUri + response.results[i].image);
-        img.attr("data-name", response.results[i].id)
-        img.attr("class", "recipeinfo");
-        
-        recipesDiv.prepend(p);
-        recipesDiv.prepend(img);
+          var img = $("<img>");
+          img.attr("src", response.baseUri + response.results[i].image);
+          img.attr("data-name", response.results[i].id)
+          img.attr("class", "recipeinfo");
+          
+          recipesDiv.prepend(p);
+          recipesDiv.prepend(img);
 
-        //Add the recipe to the page
-        $("#recipe-view").append(recipesDiv);
+          //Add the recipe to the page
+          $("#recipe-view").append(recipesDiv);
+        }
       }
     })
 };
 
 //Get indredients for the clicked recipe
 function getIngredients () {
+
+  console.log('getting ingredients for the clicked recipe')
 
   //Clear the ingredients already shown on the screen
   $("#ingredients-view").empty();
