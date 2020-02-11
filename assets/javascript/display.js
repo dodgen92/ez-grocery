@@ -11,7 +11,7 @@ $("#recipes").on("click", function(event) {
   event.preventDefault();
 
   var valCheck = $("#recipe-input").val().trim();
-  //console.log("valCheck: " + valCheck);
+  console.log("valCheck: " + valCheck);
   
   //Validate search criteria entered by the user
   if (valCheck == "") {
@@ -39,16 +39,16 @@ function getRecipes() {
   $("#recipe-view").empty();
 
   var food = $("#recipe-input").val().trim();
-  //console.log("food: " + food);
+  console.log("food: " + food);
   
-  var queryURL = "https://api.spoonacular.com/recipes/search?query=" + food + "&number=10&apiKey=870e3a3ad9bf44e3b6c302af33f72f11";
-  //console.log(queryURL)
+  var queryURL = "https://api.spoonacular.com/recipes/search?query=" + food + "&number=3&apiKey=870e3a3ad9bf44e3b6c302af33f72f11";
+  console.log(queryURL)
   
   $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-    //console.log(response);
+    console.log(response);
 
       if (response.results.length == 0) {
         text = "No results found";
@@ -56,24 +56,16 @@ function getRecipes() {
       } else {
       //Loop through the recipes to add them to the page
         for (var i = 0; i < response.results.length; i++) {
-          //console.log("i: " + i);
+          console.log("i: " + i);
 
-          var recipesDiv = $('<div class="col-lg-5"></div>');
+          //Dynamically build the materialize card for the page
+          var recipesDivTEST = '<div class="col s12 m4"><div class="icon-block"><div class="card small"><div class="card-image">';
+          recipesDivTEST += '<img id="card-img" class="recipeinfo" src="' + response.baseUri + response.results[i].image + '" data-name="' + response.results[i].id + '"</img>';          
+          recipesDivTEST += '</div><div class="card-content">';
+          recipesDivTEST += '<p>' + response.results[i].title + '</p>';
+          recipesDivTEST += '</div></div></div>';
+          $("#recipe-view").append(recipesDivTEST);
 
-          var p = $("<p>");
-          p.text(response.results[i].title);
-          var p = $("<p>").text("Title: " + response.results[i].title);
-
-          var img = $("<img>");
-          img.attr("src", response.baseUri + response.results[i].image);
-          img.attr("data-name", response.results[i].id)
-          img.attr("class", "recipeinfo");
-          
-          recipesDiv.prepend(p);
-          recipesDiv.prepend(img);
-
-          //Add the recipe to the page
-          $("#recipe-view").append(recipesDiv);
         }
       }
     })
@@ -111,13 +103,7 @@ function getIngredients () {
     p.text(response.extendedIngredients[x].original);
     var p = $("<p>").text(response.extendedIngredients[x].original);
 
-    // var img = $("<img>");
-    // img.attr("src", response.baseUri + response.results[i].image);
-    // img.attr("data-name", response.results[i].id)
-    // img.attr("class", "recipeinfo");
-    
     ingredientsDiv.prepend(p);
-    // recipesDiv.prepend(img);
     
     //Add ingredients to the page
     $("#ingredients-view").prepend(ingredientsDiv);
