@@ -56,7 +56,7 @@ function getRecipes() {
       } else {
       //Loop through the recipes to add them to the page
         for (var i = 0; i < response.results.length; i++) {
-          console.log("i: " + i);
+          console.log("--->", response.results[i].title);
 
           //Dynamically build the materialize card for the page
           var recipesDivTEST = '<div class="col s12 m4"><div class="icon-block"><div class="card small"><div class="card-image">';
@@ -70,6 +70,33 @@ function getRecipes() {
       }
     })
 };
+
+function getNutritionInfo(ingredient){
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": `https://edamam-edamam-nutrition-analysis.p.rapidapi.com/api/nutrition-data?ingr=${ingredient}`,
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-host": "edamam-edamam-nutrition-analysis.p.rapidapi.com",
+      "x-rapidapi-key": "372211e2bcmshe1d9fdb67c02279p17f4a0jsn401f1acc8f64"
+    }
+  }
+  
+  $.ajax(settings).done(function (response) {
+  //  var ingredientsDiv = $('<div class="col-lg-5"></div>');
+    var p = $("<p>");
+    p.text(response.calories);
+    var p = $("<p>").text(response.calories);
+
+    ingredientsDiv.prepend(p);
+
+        
+    //Add ingredients to the page
+    $("#ingredients-view").prepend(ingredientsDiv);
+    
+  })
+}
 
 //Get indredients for the clicked recipe
 function getIngredients () {
@@ -98,6 +125,7 @@ function getIngredients () {
       
     var ingredientsDiv = $('<div class="col-lg-5"></div>');
     //console.log("x: " + x);
+    getNutritionInfo(response.extendedIngredients[x].original)
 
     var p = $("<p>");
     p.text(response.extendedIngredients[x].original);
@@ -112,6 +140,9 @@ function getIngredients () {
   });
 };
 
+
+
+
+
 //On Click Events
 $(document).on("click", ".recipeinfo", getIngredients);
-
