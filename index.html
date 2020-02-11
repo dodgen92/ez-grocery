@@ -1,69 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EZ Recipe</title>
 
-<head>
-    <meta charset="utf-8">
-    <title>EZ Grocery</title>
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- CSS  -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/css/materialize.css"
+      type="text/css"
+      rel="stylesheet"
+      media="screen,projection"
+    />
+    <link
+      href="assets/css/style.css"
+      type="text/css"
+      rel="stylesheet"
+      media="screen,projection"
+    />
+  </head>
+  <body>
+    <nav class="white" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo">Logo</a>
 
-    <!-- Bootstrap Link-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        </ul>
 
-    <!--Favicon Link-->
-    <link rel="icon" href="favicon_io/favicon-32x32.png">
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"
+          ><i class="material-icons">menu</i></a
+        >
+      </div>
+    </nav>
 
-    <!--Google Fonts Link-->
-    <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
-
-    <!-- Font awesome Link-->
-    <script src="https://use.fontawesome.com/releases/v5.12.0/js/all.js" data-auto-replace-svg="nest"></script>
-
-</head>
-
-<body>
-
-    <div class="jumbotron jumbotron-fluid"
-        style="background-color: #2a2c2a; color: white; font-size: 60px; text-align: center; font-family: 'Bangers', cursive;">
-        RECIPE SEARCH
-        <br>
-   
+    <div id="index-banner" class="parallax-container">
+      <div class="section no-pad-bot">
+        <div class="container">
+          <br /><br />
+          <h1 class="header center yellow-text">
+            Ez-grocery
+          </h1>
+          <div class="row center">
+            <h5 class="header col s12 light">
+              A modern responsive front-end framework based on Material Design
+            </h5>
+          </div>
+          <div class="row center">
+            <a
+              href="http://materializecss.com/getting-started.html"
+              id="download-button"
+              class="btn-large waves-effect waves-light yellow lighten-1"
+              >Start Cooking</a
+            >
+          </div>
+          <br /><br />
+        </div>
+      </div>
+      <div class="parallax">
+        <img src="assets/images/Screen Shot 2020-02-08 at 10.26.53 AM.png" alt="salad" />
+      </div>
     </div>
 
-    <div class="wrapper">
-        
-        <!-- <div class="panel panel-muted">
-        <div class="panel-body"> -->
-            <form id="recipe-form">
-                <input type="text" id="recipe-input" name="">
-                <button id="recipes"> Search for Recipes </button>
-                <p id="valRecipeInput"></p>
-            </form>
+    <!-- !-- form html -->
+    <div class="panel panel-muted">
+      <div class="panel-heading">
+          <h3>Enter an ingredient:</h3>
+      </div>
+      <div class="panel-body">
+          <form id="recipe-form" action="" class="needs-validation" novalidate>
+              <div class="form-group">
+              <label for="ingredient"></label>
+              <input type="text" class="form-control" name="recipe-input" id="recipe-input" value="">
+              <p id="valRecipeInput"></p>
+              </div>
+              <button id="recipes" class="btn btn-secondary">Search Recipes</button>
+          </form>
 
-        <!-- List the ingredients for the selected recipe returned by the API -->
-        <div id="ingredients-view" class="row"></div>
-        
-        <!-- List the recipes returned by the API -->
-        <div id="recipe-view" class="row"></div>
+          <div class="container">
+            <div class="section">
+                <!-- List the recipes returned by the API -->
+                <div id="row"> 
+                  <div id="recipe-view" class="row"></div>
+                </div>
+                <!-- List the ingredients returned by the API --> 
+                <div id="row"> 
+                  <div id="ingredients-view" class="row"></div>
+                </div>
+                </div>
+              </div>
+    
+            </div>
+          </div>
 
-          
+    <div class="parallax-container valign-wrapper">
+      <div class="section no-pad-bot">
+        <div class="container">
+          <div class="row center">
+            <h5 class="header col s12 light">
+              A modern responsive front-end framework based on Material Design
+            </h5>
+          </div>
+        </div>
+      </div>
+      <div class="parallax">
+        <img src="assets/images/meat.png" alt="meat" />
+      </div>
     </div>
 
-    <footer class="footer"></footer>
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Company Bio</h5>
+            <p class="grey-text text-lighten-4">
+              We are a team of college students working on this project like
+              it's our full time job. Any amount would help support and continue
+              development on this project and is greatly appreciated.
+            </p>
+          </div>
+          <div class="col l3 s12">
+            <h5 class="white-text">Settings</h5>
+            <ul>
+              <li><a class="white-text" href="#!">Link 1</a></li>
+              <li><a class="white-text" href="#!">Link 2</a></li>
+              <li><a class="white-text" href="#!">Link 3</a></li>
+              <li><a class="white-text" href="#!">Link 4</a></li>
+            </ul>
+          </div>
+          <div class="col l3 s12">
+            <h5 class="white-text">Connect</h5>
+            <ul>
+              <li><a class="white-text" href="#!">Link 1</a></li>
+              <li><a class="white-text" href="#!">Link 2</a></li>
+              <li><a class="white-text" href="#!">Link 3</a></li>
+              <li><a class="white-text" href="#!">Link 4</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        </div>
+      </div>
+    </footer>
 
-    <!--JQuery Link-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="assets/javascript/materialize.js"></script>
+    <script src="assets/javascript/init.js"></script>
+     <!--Link to JS logic-->
+     <script src="assets/javascript/display.js"></script>
 
-    <!--Link to JS logic-->
-    <script src="./assets/javascript/display.js"></script>
-
-    <!--Link to Bootstrap Validator-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
-
-</body>
-
+  </body>
 </html>

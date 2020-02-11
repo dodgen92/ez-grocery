@@ -1,54 +1,89 @@
-#recipe-view {
-    text-align: center;
-    font-weight: bold;
-    color: white;
-    
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+#card-img {
+  height: 200px;
+  width: 100%;
 }
 
-img {
-    height: 200px;
-    width: 200px;
-    border: 3px solid black;
-    border-radius: 20px;
-    margin: 0px auto;
-    display: block;
-    padding: 10px;
+nav ul a,
+nav .brand-logo {
+  color: #444;
 }
 
 p {
-    color: black;
+  line-height: 2rem;
 }
 
-#valRecipeInput {
-    color: red;
+.sidenav-trigger {
+  color: #26a69a;
 }
 
-#recipe-input {
-    /* height: 18px; */
-    font-size: 12px;
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255, 255, 255, .9);
 }
 
-form {
-    text-align: center;
-    /* color: white; */
+.parallax-container .section {
+  width: 100%;
 }
 
-#ingredients-view, .col-md-4 {
-    text-align: center;
-    font-weight: bold;
-    /* color: white;     */
-}
-
-@media screen and (max-width: 800px) {
-    .column {
-      flex: 50%;
-      max-width: 50%;
-    }
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
   }
-  
-  @media screen and (max-width: 600px) {
-    .column {
-      flex: 100%;
-      max-width: 100%;
-    }
+
+  #index-banner .section {
+    top: 10%;
   }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+
+.form-group {
+  margin: 20px 20px 20px 20px;
+}
+
+.panel-heading {
+  margin: 20px 20px 20px 20px;
+}
+
+.btn {
+  margin: 20px 20px 20px 20px;
+}
+
+.panel {
+  color: orange
+}
+
+#search {
+  background: orange
+}
+
+.page-footer {
+  background: #d2b48c
+}
